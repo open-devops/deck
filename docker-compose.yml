@@ -6,15 +6,15 @@
 version: '2'
 
 services:
-  jenkins:
+  deck:
     image: devopsopen/docker-cd-deck
     ports:
       - "9000"
     environment:
-      - API_HOST=${DECK_API_HOST}/gate
+      - API_HOST=${DECK_API_HOST}:${DECK_API_PORT}/gate
       - BAKERY_HOST=${DECK_API_HOST}/rosco
       - DECK_HOST=0.0.0.0
-      - DECK_PORT=9000
+      - DECK_PORT=${DECK_API_PORT}
       - PROTOCOL=http
       - AUTH_ENABLED=false
       - AUTH_ENDPOINT=${DECK_API_HOST}/gate/auth/users
