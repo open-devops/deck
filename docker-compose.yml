@@ -1,0 +1,24 @@
+#
+# Spinnaker Docker Compose file for Open DevOps Pipeline
+#
+# VERSION : 1.0
+#
+version: '2'
+
+services:
+  jenkins:
+    image: devopsopen/docker-cd-deck
+    ports:
+      - "9000"
+    environment:
+      - API_HOST=${DECK_API_HOST}/gate
+      - BAKERY_HOST=${DECK_API_HOST}/rosco
+      - DECK_HOST=0.0.0.0
+      - DECK_PORT=9000
+      - PROTOCOL=http
+      - AUTH_ENABLED=false
+      - AUTH_ENDPOINT=${DECK_API_HOST}/gate/auth/users
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - no_proxy=${no_proxy}
+    restart: never
