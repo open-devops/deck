@@ -12,7 +12,7 @@ services:
       - "9000"
     environment:
       - API_HOST=${DECK_API_HOST}:${DECK_API_PORT}/gate
-      - BAKERY_HOST=${DECK_API_HOST}/rosco
+      - BAKERY_HOST=${DECK_API_HOST}:${DECK_API_PORT}/rosco
       - DECK_HOST=0.0.0.0
       - DECK_PORT=${DECK_API_PORT}
       - PROTOCOL=http
